@@ -6,4 +6,4 @@ labirint and the player has to pay attention every step he take!
 
 ORGANIZATION:
 The repository is organized in homeworks. Every homework has a specific goal. There is a original verison, full of mistakes. The main goal is the complete
-realization of the game, adjust every mistakes and implement new feature.
+realization of the game, adjust every mistakes and implement new features.
