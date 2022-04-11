@@ -1,7 +1,7 @@
 # diadia
-diadia it's a project created to help students for the first approach with the language (Java). It's a mid-low level software.
+diadia is a project created to help students for the first approach with the language (Java). It's a mid-low level software.
 
-diadia it's a game where the player have to move into a labirint and find the winner room. There are special objects, good or bad charachter into the 
+diadia is a game where the player have to move into a labirint and find the winner room. There are special objects, good or bad charachter into the 
 labirint and the player has to pay attention every step he take!
 
 ORGANIZATION:
