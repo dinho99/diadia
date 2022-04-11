@@ -1,5 +1,6 @@
+package it.uniroma3.diadia.attrezzi;
 
-
+import it.uniroma3.diadia.ambienti.Stanza;
 
 /**
  * Una semplice classe che modella un attrezzo.
@@ -42,6 +43,15 @@ public class Attrezzo {
 		return this.peso;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+	
 	/**
 	 * Restituisce una rappresentazione stringa di questo attrezzo
 	 * @return la rappresentazione stringa

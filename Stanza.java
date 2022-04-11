@@ -1,5 +1,6 @@
+package it.uniroma3.diadia.ambienti;
 
-
+import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
@@ -19,7 +20,8 @@ public class Stanza {
 	
 	private String nome;
     private Attrezzo[] attrezzi;
-    private int numeroAttrezzi;
+    private int numeroAttrezzi; //mi creo questa variabile per un rappresentazione più compatta
+    //altrimenti l'array avrebb buchi. In questo modo se ho tre elementi so che sono in posizione 0,1,2
     private Stanza[] stanzeAdiacenti;
     private int numeroStanzeAdiacenti;
 	private String[] direzioni;
@@ -93,7 +95,7 @@ public class Stanza {
     public Attrezzo[] getAttrezzi() {
         return this.attrezzi;
     }
-
+    
     /**
      * Mette un attrezzo nella stanza.
      * @param attrezzo l'attrezzo da mettere nella stanza.
@@ -117,14 +119,14 @@ public class Stanza {
 	*/
     public String toString() {
     	StringBuilder risultato = new StringBuilder();
-    	risultato.append(this.nome);
+    	risultato.append("Stanza corrente: " + this.nome);
     	risultato.append("\nUscite: ");
     	for (String direzione : this.direzioni)
     		if (direzione!=null)
     			risultato.append(" " + direzione);
     	risultato.append("\nAttrezzi nella stanza: ");
-    	for (Attrezzo attrezzo : this.attrezzi) {
-    		risultato.append(attrezzo.toString()+" ");
+    	for (int i=0; i<this.numeroAttrezzi; i++) {
+    		risultato.append(this.attrezzi[i]+" ");
     	}
     	return risultato.toString();
     }
@@ -137,7 +139,7 @@ public class Stanza {
 		boolean trovato;
 		trovato = false;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
+			if (attrezzo!=null && attrezzo.getNome().equals(nomeAttrezzo))
 				trovato = true;
 		}
 		return trovato;
@@ -153,7 +155,7 @@ public class Stanza {
 		Attrezzo attrezzoCercato;
 		attrezzoCercato = null;
 		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
+			if (attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo))
 				attrezzoCercato = attrezzo;
 		}
 		return attrezzoCercato;	
@@ -165,8 +167,17 @@ public class Stanza {
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		// TODO da implementare
-		return false;
+		boolean rimosso = false;
+		int i = 0;
+		while(!rimosso && i<this.attrezzi.length) {
+			if(attrezzi[i]!=null) 
+				if(attrezzi[i].getNome().equals(attrezzo.getNome())) {
+					attrezzi[i] = null;
+					rimosso = true;
+				}
+			i ++;
+		}
+		return rimosso;
 	}
 
 
